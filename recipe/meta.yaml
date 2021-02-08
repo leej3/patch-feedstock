@@ -1,4 +1,3 @@
-{% set bootstrapping = os.environ.get('CONDA_BUILD_BOOTSTRAPPING', '') %}
 {% set name = "patch" %}
 {% set version = "2.7.6" %}
 
@@ -22,7 +21,6 @@ build:
 {% else %}
   # Keep above the number of the _bootstrapping package
   number: 1002
-  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
 {% endif %}
   skip: True  # [win]
 

@@ -1,13 +1,16 @@
 import subprocess
-
-import sys
+from os.path import isfile
 
 command = 'patch'
+testfile = 'testfile.patch'
 
-subprocess.check_call([command, '-i', "testfile.patch"])
-with open("testfile") as f1:
-    testfile1 = f1.read()
-with open("testfile2") as f2:
-    testfile2 = f2.read()
+subprocess.check_call([command, '--help'])
 
-assert testfile1 == testfile2
+if isfile(testfile):
+    subprocess.check_call([command, '-i', "testfile.patch"])
+    with open("testfile") as f1:
+        testfile1 = f1.read()
+    with open("testfile2") as f2:
+        testfile2 = f2.read()
+
+    assert testfile1 == testfile2

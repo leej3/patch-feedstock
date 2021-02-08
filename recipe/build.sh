@@ -1,6 +1,9 @@
 #!/bin/bash
-# Get an updated config.sub and config.guess
-cp $BUILD_PREFIX/share/libtool/build-aux/config.* ./build-aux
+
+if [[ ! $BOOTSTRAPPING == yes ]]; then
+    # Get an updated config.sub and config.guess
+    cp $BUILD_PREFIX/share/libtool/build-aux/config.* ./build-aux
+fi
 
 ./configure --prefix="${PREFIX}" --host=${HOST}
 make -j${CPU_COUNT} ${VERBOSE_AT}

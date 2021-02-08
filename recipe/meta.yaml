@@ -23,6 +23,8 @@ build:
   number: 1002
 {% endif %}
   skip: True  # [win]
+  script_env:
+    - BOOTSTRAPPING={{ bootstrapping }}
 
 requirements:
   build:

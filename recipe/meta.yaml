@@ -34,10 +34,10 @@ requirements:
     - {{ compiler('c') }}
     - make
 
+{% if bootstrapping != 'yes' %}
 test:
   commands:
     - patch --help
-{% if bootstrapping != 'yes' %}
   files:
     - testfile
     - testfile2

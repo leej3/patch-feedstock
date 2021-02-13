@@ -28,11 +28,11 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}
 {% if bootstrapping != 'yes' %}
     - libtool  # [unix]
-{% endif %}
-    - {{ compiler('c') }}
     - make
+{% endif %}
 
 {% if bootstrapping != 'yes' %}
 test:
